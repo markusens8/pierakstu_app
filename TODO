@@ -1,2 +1,12 @@
-1. Izveidot statisko UI bez funkcionalitātes
-2. Izveidot datu struktūru kā grāmatas un to saturs tiks glabāts
+1. Izveidot gramatas context programmai - Izveidot datu strukturu, kura glaba gramatas <--- Ira, bet nav iztestets, taka 50% pabeigts
+
+2. Izveidot dispatch funkcijas gramatu contekstam 
+Vajadzigas funkcijas:
+  - izveidot jaunu gramatu
+  - izveidot jaunu lapu
+  - rediget nosaukumu gramatai
+  - rediget nosaukumu lapai
+  - dzest gramatu
+  - dzest lapu
+
+3. Ieladet un attelot infu programma
