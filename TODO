@@ -1,4 +1,5 @@
-1. Izveidot gramatas context programmai - Izveidot datu strukturu, kura glaba gramatas <--- Ira, bet nav iztestets, taka 50% pabeigts
+1. Optimizet gramatu kratuves datu strukturu
+1.5. Tad kad kratuve optimizeta tad ari padarit LapuIzvelni salasamaku
 
 2. Izveidot dispatch funkcijas gramatu contekstam 
 Vajadzigas funkcijas:
@@ -9,4 +10,3 @@ Vajadzigas funkcijas:
   - dzest gramatu
   - dzest lapu
 
-3. Ieladet un attelot infu programma

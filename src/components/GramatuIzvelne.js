@@ -1,15 +1,15 @@
+import { useContext } from 'react';
+import { gramatuContext } from '../context/GramatuContext'
 
 export default function GramatuIzvelne() {
+  const gramatuKratuve = useContext(gramatuContext)
 
   return (
-    <div class="gramatu-izvelne">
+    <div className="gramatu-izvelne">
       <h2> Gramatu izvelne: </h2>
-        <li>
-          <ul> projekts </ul>
-          <ul> skola </ul>
-          <ul> kacalka </ul>
-          <ul> mana gramata </ul>
-        </li>
+        <ul>
+          {gramatuKratuve.gramatas.map(gramata => <li>{gramata.id}</li> )} 
+        </ul>
     </div>
   );
 }
