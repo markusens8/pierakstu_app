@@ -1,8 +1,8 @@
-1. Optimizet gramatu kratuves datu strukturu
-1.5. Tad kad kratuve optimizeta tad ari padarit LapuIzvelni salasamaku
-
-2. Izveidot dispatch funkcijas gramatu contekstam 
+1. Izveidot dispatch funkcijas gramatu contekstam 
 Vajadzigas funkcijas:
+  - nomainit aktivo gramatu
+  - nomainit aktivo lapu
+  - veikt pierakstu
   - izveidot jaunu gramatu
   - izveidot jaunu lapu
   - rediget nosaukumu gramatai
@@ -10,3 +10,4 @@ Vajadzigas funkcijas:
   - dzest gramatu
   - dzest lapu
 
+  utilfunkcija: atgriezt aktivas gramatas lapas

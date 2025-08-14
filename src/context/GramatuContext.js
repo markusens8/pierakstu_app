@@ -1,6 +1,40 @@
-import { createContext } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 
-const gramatuKratuve = {
+const GramatuContext = createContext(null);
+
+const GramatuDispatchContext = createContext(null);
+
+
+export function GramatuProvider({ children }) {
+  const [gramatas, dispatch] = useReducer(gramatuReducer, initialGramatas)  
+
+  return (
+    <GramatuContext value={gramatas}>
+      <GramatuDispatchContext value={dispatch}>
+        {children}
+      </GramatuDispatchContext>
+    </GramatuContext>
+  );
+}
+
+
+export function useGramatuContext() {
+  return useContext(GramatuContext); 
+}
+
+export function useGramatasDispatch() {
+  return useContext(GramatuDispatchContext);
+}
+
+
+function gramatuReducer(gramatas, darbiba) {
+  switch (darbiba.tips) {
+  
+  }
+}
+
+
+const initialGramatas = {
   gramatas:
   [
     {
@@ -12,9 +46,9 @@ const gramatuKratuve = {
       lapas: [{lapalapa:'tekst'}]
     }
   ],
-  izveletaGramataIndex: 0,
-  izveletaLapaId: 'lapa1'
+  // Šie ir indeksi no gramatas masiva un lapas masiva
+  aktivaGramata: 0,
+  aktivaLapa: 0
 };
 
-export const gramatuContext = createContext(gramatuKratuve)
 

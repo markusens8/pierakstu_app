@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { gramatuContext } from '../context/GramatuContext'
+import { useGramatuContext } from '../context/GramatuContext'
 
 export default function LapuIzvelne() {
-  const gramatuKratuve = useContext(gramatuContext);
-  const lapas = gramatuKratuve.gramatas[gramatuKratuve.izveletaGramataIndex].lapas 
+  const gramatuKratuve = useGramatuContext()
+  const lapas = gramatuKratuve.gramatas[gramatuKratuve.aktivaGramata].lapas 
   
   return (
     <div className="lapu-izvelne">

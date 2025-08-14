@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import { gramatuContext } from '../context/GramatuContext'
+import { useGramatuContext } from '../context/GramatuContext'
 
 export default function PierakstuRedaktors() {
 

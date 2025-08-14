@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import { gramatuContext } from '../context/GramatuContext'
+import { useGramatuContext } from '../context/GramatuContext'
 
 export default function GramatuIzvelne() {
-  const gramatuKratuve = useContext(gramatuContext)
+  const gramatuKratuve = useGramatuContext()
 
   return (
     <div className="gramatu-izvelne">
