@@ -22,31 +22,32 @@ export function useGramatuContext() {
   return useContext(GramatuContext); 
 }
 
-export function useGramatasDispatch() {
+export function useGramatuDispatch() {
   return useContext(GramatuDispatchContext);
 }
 
 
-function gramatuReducer(gramatas, darbiba) {
-  switch (darbiba.tips) {
-  
+function gramatuReducer(gramatas, action) {
+  switch (action.type) {
+    case 'mainit gramatu': {
+      return {
+        ...gramatas,
+        aktivaGramata: gramatas.gramatas.findIndex(gramata => gramata.id === action.id)
+      }
+    } 
   }
 }
 
-
+// lapas masiva 1. elements ir lapas nosaukums, 2. elements ir lapas saturs
 const initialGramatas = {
-  gramatas:
-  [
-    {
+  gramatas: [{
       id: 'gramata1',
-      lapas: [{lapa1:'teksts teksts1'}, {lapa2:'teksts teksts ja2'}]
-    },
-    {
+      lapas: [['lapa1','teksts teksts1'], ['lapa2','teksts teksts ja2']]
+    }, {
       id: 'gramata2',
-      lapas: [{lapalapa:'tekst'}]
-    }
-  ],
-  // Šie ir indeksi no gramatas masiva un lapas masiva
+      lapas: [['2.gramatas lapa','teksts2']]
+    }],
+  // Šie ir indeksi no gramatas masiva un attieciga lapas masiva
   aktivaGramata: 0,
   aktivaLapa: 0
 };

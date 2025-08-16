@@ -1,6 +1,6 @@
 1. Izveidot dispatch funkcijas gramatu contekstam 
 Vajadzigas funkcijas:
-  - nomainit aktivo gramatu
+  - nomainit aktivo gramatu | PABEIGTS
   - nomainit aktivo lapu
   - veikt pierakstu
   - izveidot jaunu gramatu
@@ -11,3 +11,5 @@ Vajadzigas funkcijas:
   - dzest lapu
 
   utilfunkcija: atgriezt aktivas gramatas lapas
+
+  2. Uzlabot datu strukturu, jo gramatas.gramatas 
