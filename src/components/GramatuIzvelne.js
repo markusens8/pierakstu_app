@@ -1,18 +1,19 @@
 import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext'
 
-export default function GramatuIzvelne() {
-  const gramatuKratuve = useGramatuContext()
+export default function GramatuIzvelne({ aktivs, setAktivs }) {
+  const gramatas = useGramatuContext()
   const dispatch = useGramatuDispatch()
-  const gramatuSaraksts = gramatuKratuve.gramatas.map(gramata =>
-    <li key={gramata.id} onClick={() => { 
-      dispatch({
-        type:'mainit gramatu',
-        id:gramata.id
+
+  const gramatuSaraksts = gramatas.map((gramata,index) =>
+    <li key={gramata.id} onClick={() => {
+      setAktivs({
+        ...aktivs,
+        aktivaGramata: index
       });
     }}>
       {gramata.id}
     </li>
-  );
+  ) 
 
   return (
     <div className="gramatu-izvelne">
