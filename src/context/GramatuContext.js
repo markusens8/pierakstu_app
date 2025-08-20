@@ -29,14 +29,14 @@ export function useGramatuDispatch() {
 
 function gramatuReducer(gramatas, action) {
   switch (action.type) {
+    case 'rediget lapu': {
+      return null
+    }
   }
 }
 
-// lapas masiva 1. elements ir lapas nosaukums, 2. elements ir lapas saturs
-const initialGramatas = [{
-      id: 'gramata1',
-      lapas: [['lapa1','teksts teksts1'], ['lapa2','teksts teksts ja2']]
-    }, {
-      id: 'gramata2',
-      lapas: [['2.gramatas lapa','teksts2']]
-    }]
+// gramatas id, lapas{id:saturs}
+const initialGramatas = {
+  'gramata1': {'lapa1':'teksts1', 'lapa2':'teksts2'},
+  'gramata2': {'2lapa1':'2teksts1', '2lapa2':'2teksts2'}
+};
