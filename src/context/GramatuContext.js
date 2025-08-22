@@ -29,8 +29,17 @@ export function useGramatuDispatch() {
 
 function gramatuReducer(gramatas, action) {
   switch (action.type) {
-    case 'rediget lapu': {
-      return null
+    case 'lapa redigeta': {
+      return {
+        ...gramatas,
+        [action.gramata]: {
+          ...gramatas[action.gramata],
+          [action.lapa]: action.teksts,
+        },
+      };
+    }
+    case 'izveidota gramata': {
+      return null;
     }
   }
 }
@@ -40,3 +49,4 @@ const initialGramatas = {
   'gramata1': {'lapa1':'teksts1', 'lapa2':'teksts2'},
   'gramata2': {'2lapa1':'2teksts1', '2lapa2':'2teksts2'}
 };
+

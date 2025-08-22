@@ -2,7 +2,7 @@
 Vajadzigas funkcijas:
   - nomainit aktivo gramatu | PABEIGTS
   - nomainit aktivo lapu | PABEIGTS
-  - veikt pierakstu
+  - veikt pierakstu | procesa...
   - izveidot jaunu gramatu
   - izveidot jaunu lapu
   - rediget nosaukumu gramatai
@@ -13,7 +13,7 @@ Vajadzigas funkcijas:
 2. Uzlabot datu strukturu, jo gramatas.gramatas | PABEIGTS
 
 3. Uzlabot izvelnu un pieraksta redigetaja kodu, jo paslaik tur izskatas nesalasami, kur nu vel
-pec tam kad bus jakode papildus funkcionalitate
+pec tam kad bus jakode papildus funkcionalitate | Pieraksta redigetajs uzlabots 
 
 4. Izdarit ta lai gramatu conteksta failam ir pieejamas aktiva gramata un lapa, lai nav janodod
 dahuja parametri dispatch funkcijam
