@@ -38,8 +38,19 @@ function gramatuReducer(gramatas, action) {
         },
       };
     }
-    case 'izveidota gramata': {
-      return null;
+    case 'dzesta gramata': {
+      const {[action.dzesamaGramata]: _, ...jaunasGramatas} = gramatas;
+      return jaunasGramatas;
+    }
+    case 'dzesta lapa' : {
+    const jaunasGramatas = {
+      ...gramatas,
+      [action.dzesamaLapa]: {...gramatas[action.gramata] }
+    };
+
+    delete jaunasGramatas[action.gramata][action.dzesamaLapa];
+
+    return jaunasGramatas;
     }
   }
 }

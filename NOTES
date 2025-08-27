@@ -1,0 +1,13 @@
+Izdzēšanas funkcija -----
+Kā lietotājs var izdēst grāmatu/lapu:
+  - uzspiežot delete kamēr lapu vai grāmatu izvēlne ir aktīva un izdēst aktīvo lapu/grāmatu | var arī bez aktīvās izvēlnes noteikšanas un vienkārši izveidot vairākas taustiņkombinācijas
+	piemēram ctrl+del - izdzēst aktīvo lapu, ctrl+a+del - izdēst aktīvo grāmatu
+	- vajadzīgs:
+	  - ieviest mehanismu, kurš glabā aktīvo izvēlni | lietotnē tiek izmantotas flex kastes, varbūt ir variants kā noteikt kurā flex kastē pašlaik atrodas pele?
+	  - notikuma klausītāju taustiņa delete gadījumā
+  
+  - uzpiežot labo klikšķi un tad parādās iespējamās darbības (pop-up menu), te tad klāt var arī iepīt nosaukuma rediģēšanu un jaunu elementu izveidošanu.
+	Šis variants ir intuitīvāks, varbūt vieglāk izveidāms, toties lietotāja pieredze lēnāka.
+	- vajadzīgs:
+	  - pavisam jauna komponente?, kura pēctam nosūta instrukcijas izvēlnes elementam 
+

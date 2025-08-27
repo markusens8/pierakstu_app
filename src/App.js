@@ -11,7 +11,7 @@ import PierakstuRedaktors from './components/PierakstuRedaktors';
 
 
 export default function App() {
-  const [aktivs, setAktivs] = useState({aktivaGramata:null, aktivaLapa:null});  
+  const [aktivs, setAktivs] = useState({gramata:null, lapa:null});  
 
   return (
     <GramatuProvider>

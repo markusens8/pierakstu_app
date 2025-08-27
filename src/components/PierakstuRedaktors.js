@@ -13,15 +13,14 @@ function TekstaIevade({ aktivs }) {
   const gramatas = useGramatuContext();
   const dispatch = useGramatuDispatch(); 
 
-  if (aktivs.aktivaLapa === null) {
-    return <textarea disabled/>;
-  }
+  if (!aktivs.lapa)
+    return <textarea value={''} disabled/>;
 
-  const lapasSaturs = gramatas[aktivs.aktivaGramata][aktivs.aktivaLapa];
+  const lapasSaturs = gramatas[aktivs.gramata][aktivs.lapa];
   return <textarea value={lapasSaturs} onChange={e => dispatch({
     type:'lapa redigeta',
     gramata:aktivs.aktivaGramata,
     lapa:aktivs.aktivaLapa,
-    teksts:e.target.value}) 
+    teksts:e.target.value }) 
   }/>;
 }
