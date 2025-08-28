@@ -1,8 +1,10 @@
-import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext'
+import { useState } from 'react';
 
-export default function GramatuIzvelne({ aktivs, setAktivs }) {
+import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
+import { useAktivsContext, useSetAktivs} from '../context/AktivsContext';
+
+export default function GramatuIzvelne(aktivs, setAktivs) {
   const gramatas = useGramatuContext();
-
   const gramatuNosaukumi = Object.keys(gramatas);
 
   return (
@@ -10,20 +12,22 @@ export default function GramatuIzvelne({ aktivs, setAktivs }) {
       <h2> Gramatu izvelne: </h2>
         <ul>
           {gramatuNosaukumi.map(gramatasNosaukums => 
-            <Gramata 
-              key={gramatasNosaukums}
-              gramatasNosaukums={gramatasNosaukums} 
-              aktivs={aktivs} 
-              setAktivs={setAktivs}
-            />
+            <li key={gramatasNosaukums}>
+              <Gramata gramatasNosaukums={gramatasNosaukums}/>
+            </li>
           )}
         </ul>
     </div>
   );
 }
 
-function Gramata({ gramatasNosaukums, aktivs, setAktivs }) {
+function Gramata({ gramatasNosaukums }) {
+  const aktivs = useAktivsContext();
+  const setAktivs = useSetAktivs();
   const dispatch = useGramatuDispatch();
+
+  const [vaiRedige, setVaiRedige] = useState(false);
+
 
   function dzestGramatu(e) {
     e.preventDefault();
@@ -33,12 +37,19 @@ function Gramata({ gramatasNosaukums, aktivs, setAktivs }) {
       setAktivs({gramata:null, lapa:null});
   }
 
+
+  if (vaiRedige) {
+    return (
+      <input value={gramatasNosaukums}/>
+    );
+  }
   return (
-    <li 
+    <span 
       onClick={() => setAktivs({gramata:gramatasNosaukums, lapa:null})}
       onContextMenu={dzestGramatu}
+      onDoubleClick={() => setVaiRedige(true)}
     >
       {gramatasNosaukums}
-    </li>
+    </span>
   );
 }

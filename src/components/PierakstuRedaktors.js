@@ -1,15 +1,17 @@
-import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext'
+import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
+import { useAktivsContext } from '../context/AktivsContext';
 
-export default function PierakstuRedaktors({ aktivs }) {
+export default function PierakstuRedaktors() {
   return (
     <div className='pierakstu-redaktors'>
       <h2> Pierakstu redaktors: </h2>
-      <TekstaIevade aktivs={aktivs}/> 
+      <TekstaIevade/> 
     </div>
   );
 }
 
-function TekstaIevade({ aktivs }) {
+function TekstaIevade() {
+  const aktivs = useAktivsContext();
   const gramatas = useGramatuContext();
   const dispatch = useGramatuDispatch(); 
 

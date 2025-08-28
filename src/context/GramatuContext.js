@@ -17,14 +17,9 @@ export function GramatuProvider({ children }) {
   );
 }
 
+export const useGramatuContext = () => useContext(GramatuContext);
 
-export function useGramatuContext() {
-  return useContext(GramatuContext); 
-}
-
-export function useGramatuDispatch() {
-  return useContext(GramatuDispatchContext);
-}
+export const useGramatuDispatch = () => useContext(GramatuDispatchContext);
 
 
 function gramatuReducer(gramatas, action) {
@@ -45,12 +40,14 @@ function gramatuReducer(gramatas, action) {
     case 'dzesta lapa' : {
     const jaunasGramatas = {
       ...gramatas,
-      [action.dzesamaLapa]: {...gramatas[action.gramata] }
+      [action.gramata]: {...gramatas[action.gramata] }
     };
 
     delete jaunasGramatas[action.gramata][action.dzesamaLapa];
-
     return jaunasGramatas;
+    }
+    case 'mainits gramatas nosaukums': {
+      return null;
     }
   }
 }

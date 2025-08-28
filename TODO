@@ -5,7 +5,7 @@ Vajadzigas funkcijas:
   - veikt pierakstu | PABEIGTS
   - izveidot jaunu gramatu
   - izveidot jaunu lapu
-  - rediget nosaukumu gramatai
+  - rediget nosaukumu gramatai | procesa...
   - rediget nosaukumu lapai
   - dzest gramatu | PABEIGTS
   - dzest lapu | PABEIGTS
@@ -15,4 +15,4 @@ Vajadzigas funkcijas:
 3. Uzlabot izvelnu un pieraksta redigetaja kodu, jo paslaik tur izskatas nesalasami, kur nu vel
 pec tam kad bus jakode papildus funkcionalitate | PABEIGTS 
 
-4. Parcelt aktivs state un setAktivs uz context, citadak ir daudz prop drill
+4. Parcelt aktivs state un setAktivs uz context, citadak ir daudz prop drill | PABEIGTS
