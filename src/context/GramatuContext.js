@@ -47,7 +47,10 @@ function gramatuReducer(gramatas, action) {
     return jaunasGramatas;
     }
     case 'mainits gramatas nosaukums': {
-      return null;
+      const jaunasGramatas = {...gramatas};
+      jaunasGramatas[action.jaunaisNosaukums] = gramatas[action.vecaisNosaukums];
+      delete jaunasGramatas[action.vecaisNosaukums];
+      return jaunasGramatas;
     }
   }
 }

@@ -22,6 +22,7 @@ export default function GramatuIzvelne(aktivs, setAktivs) {
 }
 
 function Gramata({ gramatasNosaukums }) {
+  const gramatas = useGramatuContext();
   const aktivs = useAktivsContext();
   const setAktivs = useSetAktivs();
   const dispatch = useGramatuDispatch();
@@ -37,10 +38,33 @@ function Gramata({ gramatasNosaukums }) {
       setAktivs({gramata:null, lapa:null});
   }
 
+  function beigtRediget(jaunaisNosaukums) {
+    console.log(jaunaisNosaukums);
+    if (jaunaisNosaukums !== '' && !(jaunaisNosaukums in gramatas)) {
+      setVaiRedige(false);
+
+      dispatch ({
+        type: 'mainits gramatas nosaukums',
+        vecaisNosaukums: gramatasNosaukums,
+        jaunaisNosaukums: jaunaisNosaukums
+      })
+    }
+  } 
+
 
   if (vaiRedige) {
+    let jaunaisNosaukums = gramatasNosaukums;
     return (
-      <input value={gramatasNosaukums}/>
+      <input
+        defaultValue={jaunaisNosaukums}
+        onChange={(e) => jaunaisNosaukums = e.target.value}
+        onKeyDown={(e) => { 
+          if (e.key === "Enter")
+            beigtRediget(jaunaisNosaukums)
+          }
+        }
+        autoFocus={true}
+      />
     );
   }
   return (
