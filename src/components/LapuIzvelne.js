@@ -1,13 +1,12 @@
-import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
 import { useAktivsContext, useSetAktivs} from '../context/AktivsContext';
+import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 
 export default function LapuIzvelne() {
-  const gramatas = useGramatuContext();
   const aktivs = useAktivsContext();
+  const lapas = useLapuContext();
 
-  const lapuNosaukumi = aktivs.gramata 
-    ? Object.keys(gramatas[aktivs.gramata] || {})
-    : []; 
+  const lapuNosaukumi =
+    lapas.filter(lapa => lapa.gramatasId === aktivs.gramata).map(lapa => lapa.id); 
 
   return (
     <div className="lapu-izvelne">
@@ -27,25 +26,11 @@ export default function LapuIzvelne() {
 function Lapa({ lapasNosaukums }) {
   const aktivs = useAktivsContext();
   const setAktivs = useSetAktivs();
-  const dispatch = useGramatuDispatch();
-
-  function dzestLapu(e) {
-    e.preventDefault();
-
-    dispatch ({
-      type: 'dzesta lapa',
-      gramata: aktivs.gramata,
-      dzesamaLapa: lapasNosaukums
-    });
-
-    if (aktivs.lapa === lapasNosaukums)
-      setAktivs({...aktivs, lapa:null});
-  }
+  const dispatch = useLapuDispatch();
 
   return (
-    <li
+    <li 
       onClick={() => setAktivs({...aktivs, lapa:lapasNosaukums})}
-      onContextMenu={dzestLapu}
     >
       {lapasNosaukums}
     </li>

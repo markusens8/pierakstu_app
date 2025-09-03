@@ -1,9 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
 
 const GramatuContext = createContext(null);
-
 const GramatuDispatchContext = createContext(null);
-
 
 export function GramatuProvider({ children }) {
   const [gramatas, dispatch] = useReducer(gramatuReducer, initialGramatas)  
@@ -18,33 +16,14 @@ export function GramatuProvider({ children }) {
 }
 
 export const useGramatuContext = () => useContext(GramatuContext);
-
 export const useGramatuDispatch = () => useContext(GramatuDispatchContext);
 
 
 function gramatuReducer(gramatas, action) {
   switch (action.type) {
-    case 'lapa redigeta': {
-      return {
-        ...gramatas,
-        [action.gramata]: {
-          ...gramatas[action.gramata],
-          [action.lapa]: action.teksts,
-        },
-      };
-    }
     case 'dzesta gramata': {
       const {[action.dzesamaGramata]: _, ...jaunasGramatas} = gramatas;
       return jaunasGramatas;
-    }
-    case 'dzesta lapa' : {
-    const jaunasGramatas = {
-      ...gramatas,
-      [action.gramata]: {...gramatas[action.gramata] }
-    };
-
-    delete jaunasGramatas[action.gramata][action.dzesamaLapa];
-    return jaunasGramatas;
     }
     case 'mainits gramatas nosaukums': {
       const jaunasGramatas = {...gramatas};
@@ -55,9 +34,8 @@ function gramatuReducer(gramatas, action) {
   }
 }
 
-// gramatas id, lapas{id:saturs}
-const initialGramatas = {
-  'gramata1': {'lapa1':'teksts1', 'lapa2':'teksts2'},
-  'gramata2': {'2lapa1':'2teksts1', '2lapa2':'2teksts2'}
-};
 
+const initialGramatas = [
+  { id:'gramata1'},
+  { id:'gramata2'}
+]

@@ -1,18 +1,12 @@
 1. Izveidot dispatch funkcijas gramatu contekstam 
-Vajadzigas funkcijas:
-  - nomainit aktivo gramatu | PABEIGTS
-  - nomainit aktivo lapu | PABEIGTS
-  - veikt pierakstu | PABEIGTS
-  - izveidot jaunu gramatu
-  - izveidot jaunu lapu
-  - rediget nosaukumu gramatai | procesa...
-  - rediget nosaukumu lapai
-  - dzest gramatu | PABEIGTS
-  - dzest lapu | PABEIGTS
-
-2. Uzlabot datu strukturu, jo gramatas.gramatas | PABEIGTS
-
-3. Uzlabot izvelnu un pieraksta redigetaja kodu, jo paslaik tur izskatas nesalasami, kur nu vel
-pec tam kad bus jakode papildus funkcionalitate | PABEIGTS 
-
-4. Parcelt aktivs state un setAktivs uz context, citadak ir daudz prop drill | PABEIGTS
+  Vajadzigas funkcijas:
+    - nomainit aktivo gramatu | PABEIGTS
+    - nomainit aktivo lapu | PABEIGTS
+    - veikt pierakstu |
+    - izveidot jaunu gramatu
+    - izveidot jaunu lapu
+    - rediget nosaukumu gramatai |
+    - rediget nosaukumu lapai
+    - dzest gramatu | 
+    - dzest lapu | 
+---------------------------------------------------------------------------------

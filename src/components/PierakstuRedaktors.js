@@ -1,5 +1,5 @@
-import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
 import { useAktivsContext } from '../context/AktivsContext';
+import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 
 export default function PierakstuRedaktors() {
   return (
@@ -12,17 +12,28 @@ export default function PierakstuRedaktors() {
 
 function TekstaIevade() {
   const aktivs = useAktivsContext();
-  const gramatas = useGramatuContext();
-  const dispatch = useGramatuDispatch(); 
+  const lapas = useLapuContext();
+  const dispatch = useLapuDispatch();
 
   if (!aktivs.lapa)
     return <textarea value={''} disabled/>;
+  else {
+    const lapasSaturs = lapas.find(lapa =>
+      lapa.gramatasId === aktivs.gramata &&
+      lapa.id === aktivs.lapa
+    ).saturs;
 
-  const lapasSaturs = gramatas[aktivs.gramata][aktivs.lapa];
-  return <textarea value={lapasSaturs} onChange={e => dispatch({
-    type:'lapa redigeta',
-    gramata:aktivs.aktivaGramata,
-    lapa:aktivs.aktivaLapa,
-    teksts:e.target.value }) 
-  }/>;
+    return (
+      <textarea
+        value={lapasSaturs}
+        onChange={(e) => 
+          dispatch({
+            type:'redigeta lapa',
+            gramataId:aktivs.gramata,
+            lapaId:aktivs.lapa
+          })
+        }
+      />
+    );
+  }
 }
