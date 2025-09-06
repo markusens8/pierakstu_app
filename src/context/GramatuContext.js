@@ -22,8 +22,7 @@ export const useGramatuDispatch = () => useContext(GramatuDispatchContext);
 function gramatuReducer(gramatas, action) {
   switch (action.type) {
     case 'dzesta gramata': {
-      const {[action.dzesamaGramata]: _, ...jaunasGramatas} = gramatas;
-      return jaunasGramatas;
+      return gramatas.filter(gramata => gramata.id !== action.id);
     }
     case 'mainits gramatas nosaukums': {
       const jaunasGramatas = {...gramatas};

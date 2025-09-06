@@ -19,9 +19,25 @@ export const useLapuContext = () => useContext(LapuContext);
 export const useLapuDispatch = () => useContext(LapuDispatchContext);
 
 function lapuReducer(lapas, action) {
-  return null;
+  switch (action.type) {
+    case 'dzesta lapa': {
+      return lapas.filter(lapa => 
+        lapa.gramatasId !== action.gramatasId 
+        && lapa.id !== action.id
+      )
+    }
+    case 'redigeta lapa': {
+      const index = getLapasIndex(lapas, action.gramatasId, action.lapasId);
+      return [
+      ...lapas,
+        lapas[index].saturs = action.jaunaisSaturs
+      ];
+    }
+  }
 }
 
+const getLapasIndex = (lapas, gramatasId, lapasId) =>
+  lapas.findIndex(lapa => lapa.gramatasId === gramatasId && lapa.id === lapasId);
 
 const initialLapas = [
   {gramatasId:'gramata1', id:'lapa1', saturs:'šis ir lapas saturs 123'},

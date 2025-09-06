@@ -2,11 +2,14 @@
   Vajadzigas funkcijas:
     - nomainit aktivo gramatu | PABEIGTS
     - nomainit aktivo lapu | PABEIGTS
-    - veikt pierakstu |
+    - veikt pierakstu | PABEIGTS
     - izveidot jaunu gramatu
     - izveidot jaunu lapu
     - rediget nosaukumu gramatai |
     - rediget nosaukumu lapai
-    - dzest gramatu | 
-    - dzest lapu | 
+    - dzest gramatu | PABEIGTS 
+    - dzest lapu | PABEIGTS 
 ---------------------------------------------------------------------------------
+IEVIEST TAUSTIŅKOMBINĀCIJAS!
+
+2. Izdarit ta lai neklausitos taustiņus kamer tiek ievadīts teksts ievades laukā. 

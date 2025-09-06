@@ -28,9 +28,10 @@ function TekstaIevade() {
         value={lapasSaturs}
         onChange={(e) => 
           dispatch({
-            type:'redigeta lapa',
-            gramataId:aktivs.gramata,
-            lapaId:aktivs.lapa
+            type: 'redigeta lapa',
+            gramatasId: aktivs.gramata,
+            lapasId: aktivs.lapa,
+            jaunaisSaturs: e.target.value
           })
         }
       />
