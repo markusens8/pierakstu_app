@@ -24,17 +24,21 @@ function gramatuReducer(gramatas, action) {
     case 'dzesta gramata': {
       return gramatas.filter(gramata => gramata.id !== action.id);
     }
-    case 'mainits gramatas nosaukums': {
-      const jaunasGramatas = {...gramatas};
-      jaunasGramatas[action.jaunaisNosaukums] = gramatas[action.vecaisNosaukums];
-      delete jaunasGramatas[action.vecaisNosaukums];
-      return jaunasGramatas;
+    case 'mainits id': {
+      const index = getGramatasIndex(gramatas, action.vecaisId);
+      console.log(index);
+      return [
+        ...gramatas,
+        gramatas[index].id = action.jaunaisId
+      ];
     }
   }
 }
 
+const getGramatasIndex = (gramatas, id) =>
+  gramatas.findIndex(gramata => gramata.id === id); 
 
 const initialGramatas = [
-  { id:'gramata1'},
-  { id:'gramata2'}
+  {id:'gramata1'},
+  {id:'gramata2'}
 ]

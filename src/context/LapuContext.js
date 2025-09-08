@@ -29,9 +29,12 @@ function lapuReducer(lapas, action) {
     case 'redigeta lapa': {
       const index = getLapasIndex(lapas, action.gramatasId, action.lapasId);
       return [
-      ...lapas,
+        ...lapas,
         lapas[index].saturs = action.jaunaisSaturs
       ];
+    }
+    case 'mainits gramatas id': {
+      return null;
     }
   }
 }
