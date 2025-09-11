@@ -12,7 +12,7 @@ export default function GramatuIzvelne() {
   const dispatch = useGramatuDispatch();
   const lapuDispatch = useLapuDispatch();
   const [vaiRedige, setVaiRedige] = useState(false); 
-  const [jaunaisId, setJaunaisId] = useState('');
+  let jaunaisId = '';
 
   const gramatuSaraksts = gramatas.map(gramata =>
     <li
@@ -23,7 +23,7 @@ export default function GramatuIzvelne() {
         <input
           autoFocus
           defaultValue={gramata.id}
-          onChange={e => setJaunaisId(e.target.value)}
+          onChange={e => jaunaisId = e.target.value}
           onKeyDown={e => {if (e.key === 'Enter') saglabatGramatu();} }
         />
       :
@@ -36,14 +36,19 @@ export default function GramatuIzvelne() {
     if (jaunaisId === '' || gramatas.includes({id:aktivs.gramata}) )
       alert('nederiga ievade!');
     else {
-      setAktivs({...aktivs, gramata:jaunaisId})
-      setVaiRedige(false);
-
       dispatch({
         type: 'mainits id',
         vecaisId: aktivs.gramata,
         jaunaisId: jaunaisId
       })
+      lapuDispatch({
+        type: 'mainits gramatas id',
+        vecaisId: aktivs.gramata,
+        jaunaisId: jaunaisId
+      })
+
+      setAktivs({...aktivs, gramata:jaunaisId})
+      setVaiRedige(false);
     }
   }
 

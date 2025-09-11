@@ -25,18 +25,16 @@ function gramatuReducer(gramatas, action) {
       return gramatas.filter(gramata => gramata.id !== action.id);
     }
     case 'mainits id': {
-      const index = getGramatasIndex(gramatas, action.vecaisId);
-      console.log(index);
-      return [
-        ...gramatas,
-        gramatas[index].id = action.jaunaisId
-      ];
+      return gramatas.map(gramata => gramata.id === action.vecaisId ? 
+        {id: action.jaunaisId} 
+        : gramata
+      )
     }
   }
 }
 
-const getGramatasIndex = (gramatas, id) =>
-  gramatas.findIndex(gramata => gramata.id === id); 
+//const getGramatasIndex = (gramatas, id) =>
+//  gramatas.findIndex(gramata => gramata.id === id); 
 
 const initialGramatas = [
   {id:'gramata1'},

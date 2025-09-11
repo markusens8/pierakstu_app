@@ -34,7 +34,10 @@ function lapuReducer(lapas, action) {
       ];
     }
     case 'mainits gramatas id': {
-      return null;
+      return lapas.map(lapa => lapa.gramatasId === action.vecaisId ?
+        {...lapa, gramatasId:action.jaunaisId}
+        : lapa   
+      )
     }
   }
 }
