@@ -3,13 +3,16 @@
     - nomainit aktivo gramatu | PABEIGTS
     - nomainit aktivo lapu | PABEIGTS
     - veikt pierakstu | PABEIGTS
-    - izveidot jaunu gramatu
-    - izveidot jaunu lapu
+    - izveidot jaunu gramatu | PABEIGTS
+    - izveidot jaunu lapu | PABEIGTS
     - rediget nosaukumu gramatai | PABEIGTS
-    - rediget nosaukumu lapai
+    - rediget nosaukumu lapai | PABEIGTS
     - dzest gramatu | PABEIGTS 
     - dzest lapu | PABEIGTS 
----------------------------------------------------------------------------------
-IEVIEST TAUSTIŅKOMBINĀCIJAS!
 
-2. Izdarit ta lai neklausitos taustiņus kamer tiek ievadīts teksts ievades laukā. 
+ Zināmās problēmas:
+  - nospiežot attiecigo taustiņu lai redigetu/izveidotu jaunu lapu, nospiestais taustiņš
+    tiek ievadits input laukā
+  - rediģējot lauku var tikt palaista funkcija, ja tiek nospiests kāds funkcijas taustiņš
+  - jaunas gramatas/lapas funkcija nestradas optimali ja lietotajs neadekvati ievadis nosaukumu
+---------------------------------------------------------------------------------

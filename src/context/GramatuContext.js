@@ -30,6 +30,12 @@ function gramatuReducer(gramatas, action) {
         : gramata
       )
     }
+    case 'izveidota gramata': {
+      return [
+        ...gramatas,
+        {id:'jauna gramata'}
+      ]
+    }
   }
 }
 

@@ -3,10 +3,10 @@ import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 
 export default function PierakstuRedaktors() {
   return (
-    <div className='pierakstu-redaktors'>
+    <main className='pierakstu-redaktors'>
       <h2> Pierakstu redaktors: </h2>
       <TekstaIevade/> 
-    </div>
+    </main>
   );
 }
 

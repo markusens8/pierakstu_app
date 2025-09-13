@@ -32,8 +32,17 @@ export default function GramatuIzvelne() {
     </li>
   )
 
+  const izveidotGramatu = () => {
+    dispatch({
+      type:'izveidota gramata'
+    }) 
+
+    setAktivs({gramata:'jauna gramata', lapa:null});
+    setVaiRedige(true);
+  }
+
   const saglabatGramatu = () => {
-    if (jaunaisId === '' || gramatas.includes({id:aktivs.gramata}) )
+    if (jaunaisId === '' || (gramatas.some(gramata => gramata.id === jaunaisId) && aktivs.gramata !== jaunaisId) )
       alert('nederiga ievade!');
     else {
       dispatch({
@@ -47,7 +56,7 @@ export default function GramatuIzvelne() {
         jaunaisId: jaunaisId
       })
 
-      setAktivs({...aktivs, gramata:jaunaisId})
+      setAktivs({...aktivs, gramata:jaunaisId});
       setVaiRedige(false);
     }
   }
@@ -62,15 +71,16 @@ export default function GramatuIzvelne() {
     } 
   }
 
-  useOnKeyPress(() => setVaiRedige(false), 'Escape');
+  useOnKeyPress(izveidotGramatu, 'N');
   useOnKeyPress(() => setVaiRedige(true), 'E');
+  useOnKeyPress(() => setVaiRedige(false), 'Escape');
   useOnKeyPress(dzestGramatu, 'D');
   return (
-    <div className="gramatu-izvelne">
+    <nav className="gramatu-izvelne">
       <h2> Gramatu izvelne: </h2>
         <ul>
           {gramatuSaraksts}
         </ul>
-    </div>
+    </nav>
   );
 }
