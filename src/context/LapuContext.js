@@ -49,7 +49,7 @@ function lapuReducer(lapas, action) {
     case 'izveidota lapa': {
       return [
         ...lapas,
-        {gramatasId:action.gramatasId, id:'jauna lapa', saturs:''}
+        {gramatasId:action.gramatasId, id:'', saturs:''}
       ]
     }
   }

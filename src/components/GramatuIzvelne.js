@@ -2,24 +2,26 @@ import { useState } from 'react';
 
 import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
 import { useLapuDispatch } from '../context/LapuContext';
-import { useAktivsContext, useSetAktivs } from '../context/AktivsContext';
+import { useAktivsContext, useAktivsDispatch } from '../context/AktivsContext';
 import useOnKeyPress from '../hooks/useOnKeyPress';
 
 export default function GramatuIzvelne() {
   const aktivs = useAktivsContext();
-  const setAktivs = useSetAktivs();
   const gramatas = useGramatuContext();
-  const dispatch = useGramatuDispatch();
+  const aktivsDispatch = useAktivsDispatch();
+  const gramatuDispatch = useGramatuDispatch();
   const lapuDispatch = useLapuDispatch();
-  const [vaiRedige, setVaiRedige] = useState(false); 
-  let jaunaisId = '';
 
+
+  let jaunaisId = '';
   const gramatuSaraksts = gramatas.map(gramata =>
     <li
       key={gramata.id}
-      onClick={() => setAktivs({gramata:gramata.id, lapa:null})}
+      onClick={() => 
+        aktivsDispatch({type:'mainita aktiva gramata', gramata:gramata.id})
+      }
     >
-      {vaiRedige && gramata.id === aktivs.gramata ?  
+      {aktivs.redigeSadalu === 'gramata' && aktivs.gramata === gramata.id ?  
         <input
           autoFocus
           defaultValue={gramata.id}
@@ -32,20 +34,11 @@ export default function GramatuIzvelne() {
     </li>
   )
 
-  const izveidotGramatu = () => {
-    dispatch({
-      type:'izveidota gramata'
-    }) 
-
-    setAktivs({gramata:'jauna gramata', lapa:null});
-    setVaiRedige(true);
-  }
-
   const saglabatGramatu = () => {
     if (jaunaisId === '' || (gramatas.some(gramata => gramata.id === jaunaisId) && aktivs.gramata !== jaunaisId) )
       alert('nederiga ievade!');
     else {
-      dispatch({
+      gramatuDispatch({
         type: 'mainits id',
         vecaisId: aktivs.gramata,
         jaunaisId: jaunaisId
@@ -55,25 +48,34 @@ export default function GramatuIzvelne() {
         vecaisId: aktivs.gramata,
         jaunaisId: jaunaisId
       })
-
-      setAktivs({...aktivs, gramata:jaunaisId});
-      setVaiRedige(false);
+      aktivsDispatch({type:'mainita aktiva gramata', gramata:jaunaisId});
+      aktivsDispatch({type:'beigt redigesanu'});
     }
   }
+  
 
+  const izveidotGramatu = () => {
+    gramatuDispatch({
+      type:'izveidota gramata'
+    }) 
+    aktivsDispatch({type:'mainita aktiva gramata', gramata:''});
+    aktivsDispatch({type:'rediget lauku', sadala:'gramata'});
+  }
+
+  
   const dzestGramatu = () => {
     if (aktivs.gramata !== null) {
-      dispatch({
+      gramatuDispatch({
         type: 'dzesta gramata',
         id: aktivs.gramata
       });
-      setAktivs({gramata:null, lapa:null});
+      aktivsDispatch({type:'mainita aktiva gramata', gramata:null})
     } 
   }
 
+
   useOnKeyPress(izveidotGramatu, 'N');
-  useOnKeyPress(() => setVaiRedige(true), 'E');
-  useOnKeyPress(() => setVaiRedige(false), 'Escape');
+  useOnKeyPress(() => aktivsDispatch({type:'rediget lauku', sadala:'gramata'}), 'E');
   useOnKeyPress(dzestGramatu, 'D');
   return (
     <nav className="gramatu-izvelne">

@@ -1,5 +1,6 @@
-import { useAktivsContext } from '../context/AktivsContext';
+import { useAktivsContext, useAktivsDispatch } from '../context/AktivsContext';
 import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
+
 
 export default function PierakstuRedaktors() {
   return (
@@ -12,8 +13,9 @@ export default function PierakstuRedaktors() {
 
 function TekstaIevade() {
   const aktivs = useAktivsContext();
+  const aktivsDispatch = useAktivsDispatch();
   const lapas = useLapuContext();
-  const dispatch = useLapuDispatch();
+  const lapuDispatch = useLapuDispatch();
 
   if (!aktivs.lapa)
     return <textarea value={''} disabled/>;
@@ -26,8 +28,10 @@ function TekstaIevade() {
     return (
       <textarea
         value={lapasSaturs}
+        onFocus={() => aktivsDispatch({type:'rediget lauku', sadala:'redaktors'})}
+        onBlur={() => aktivsDispatch({type:'beigt redigesanu'})}
         onChange={(e) => 
-          dispatch({
+          lapuDispatch({
             type: 'redigeta lapa',
             gramatasId: aktivs.gramata,
             lapasId: aktivs.lapa,

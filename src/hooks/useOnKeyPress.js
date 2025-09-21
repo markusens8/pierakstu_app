@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
+import { useAktivsContext } from '../context/AktivsContext';
 
 export default function useOnKeyPress (callback, targetKey) {
+  const aktivs = useAktivsContext();
   useEffect(() => {
     const keyPressHandler = (e) => {
-     if(e.key === targetKey)
+     if(e.key === targetKey && aktivs.redigeSadalu === null)
       callback();
     }
     window.addEventListener('keydown', keyPressHandler);

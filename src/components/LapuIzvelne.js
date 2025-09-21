@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
-import { useAktivsContext, useSetAktivs} from '../context/AktivsContext';
+import { useAktivsContext, useAktivsDispatch} from '../context/AktivsContext';
 import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 import useOnKeyPress from '../hooks/useOnKeyPress';
 
 export default function LapuIzvelne() {
   const aktivs = useAktivsContext();
-  const setAktivs = useSetAktivs();
+  const aktivsDispatch = useAktivsDispatch();
   const lapas = useLapuContext().filter(lapa => lapa.gramatasId === aktivs.gramata);
-  const dispatch = useLapuDispatch();
-  const [vaiRedige, setVaiRedige] = useState(false); 
-  let jaunaisId = '';
+  console.log(aktivs.gramata);
+  const lapuDispatch = useLapuDispatch();
 
+  let jaunaisId = '';
   const lapuSaraksts = lapas.map(lapa => 
     <li
       key={lapa.id}
-      onClick={() => setAktivs({...aktivs, lapa:lapa.id})}
+      onClick={() => aktivsDispatch({type:'mainita aktiva lapa', lapa:lapa.id})}
     >
-      {vaiRedige && lapa.id === aktivs.lapa ? 
+      {aktivs.redigeSadalu === 'lapa' && aktivs.lapa === lapa.id ? 
         <input
           autoFocus
           defaultValue={lapa.id}
@@ -30,47 +30,45 @@ export default function LapuIzvelne() {
     </li>
   )
 
-
-  const izveidotLapu = () => {
-    dispatch({
-      type:'izveidota lapa',
-      gramatasId:aktivs.gramata
-    })
-
-    setAktivs({...aktivs, lapa:'jauna lapa'});
-    setVaiRedige(true);
-  }
-
   const saglabatLapu = () => {
     if(jaunaisId === '' || (lapas.some(lapa => lapa.id === jaunaisId) && aktivs.lapa !== jaunaisId))
       alert('nederīgs lapas nosaukums!');
     else {
-      dispatch({
+      lapuDispatch({
         type: 'mainits id',
         vecaisId: aktivs.lapa,
         jaunaisId: jaunaisId
       })
-
-      setAktivs({...aktivs, lapa:jaunaisId});
-      setVaiRedige(false);
+      aktivsDispatch({type:'mainita aktiva lapa', lapa:jaunaisId})
+      aktivsDispatch({type:'beigt redigesanu'});
     }
   }
+  
+  const izveidotLapu = () => {
+    lapuDispatch({
+      type:'izveidota lapa',
+      gramatasId:aktivs.gramata
+    })
+    aktivsDispatch({type:'mainita aktiva lapa', lapa:''});
+    aktivsDispatch({type:'rediget lauku', sadala:'lapa'});
+  }
 
+  
   const dzestLapu = () => {
     if (aktivs.gramata !== null) {
-      dispatch({
+      lapuDispatch({
         type:'dzesta lapa',
         gramatasId: aktivs.gramata,
         id: aktivs.lapa
       })
-      setAktivs({...aktivs, lapa:null});
+      aktivsDispatch({type:'mainita aktiva lapa', lapa:null})
     }
   }
 
 
   useOnKeyPress(izveidotLapu, 'n');
-  useOnKeyPress(() => setVaiRedige(true), 'e'); 
-  useOnKeyPress(() => setVaiRedige(false), 'Escape');
+  useOnKeyPress(() => aktivsDispatch({type:'rediget lauku', sadala:'lapa'}), 'e'); 
+  useOnKeyPress(() => aktivsDispatch({type:'beigt redigesanu'}), 'Escape');
   useOnKeyPress(dzestLapu, 'd');
   return (
     <nav className="lapu-izvelne">

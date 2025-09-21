@@ -33,14 +33,12 @@ function gramatuReducer(gramatas, action) {
     case 'izveidota gramata': {
       return [
         ...gramatas,
-        {id:'jauna gramata'}
+        {id:''}
       ]
     }
   }
 }
 
-//const getGramatasIndex = (gramatas, id) =>
-//  gramatas.findIndex(gramata => gramata.id === id); 
 
 const initialGramatas = [
   {id:'gramata1'},
