@@ -52,6 +52,9 @@ function lapuReducer(lapas, action) {
         {gramatasId:action.gramatasId, id:'', saturs:''}
       ]
     }
+    case 'dzesta gramata': {
+      return lapas.filter(lapa => lapa.gramatasId !== action.gramatasId);
+    }
   }
 }
 

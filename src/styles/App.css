@@ -1,0 +1,22 @@
+
+.app-container {
+  display: flex;
+  text-align: center;
+}
+
+.lapu-izvelne {
+  background-color: aqua;
+  flex: 1;
+}
+
+.pierakstu-redaktors {
+  background-color: pink;
+  flex: 2;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gramatu-izvelne {
+  background-color: red;
+  flex: 1;
+}

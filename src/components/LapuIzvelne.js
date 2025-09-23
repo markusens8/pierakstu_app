@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import '../styles/Izvelnes.css';
 
 import { useAktivsContext, useAktivsDispatch} from '../context/AktivsContext';
 import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
@@ -8,7 +8,6 @@ export default function LapuIzvelne() {
   const aktivs = useAktivsContext();
   const aktivsDispatch = useAktivsDispatch();
   const lapas = useLapuContext().filter(lapa => lapa.gramatasId === aktivs.gramata);
-  console.log(aktivs.gramata);
   const lapuDispatch = useLapuDispatch();
 
   let jaunaisId = '';
@@ -25,7 +24,9 @@ export default function LapuIzvelne() {
           onKeyDown={e => {if (e.key === 'Enter') saglabatLapu();} }
         />
       :
-        lapa.id
+        <span className={lapa.id === aktivs.lapa ? 'aktivs-li-elements' : 'li-elements'}>
+          {lapa.id}
+        </span>
       }
     </li>
   )

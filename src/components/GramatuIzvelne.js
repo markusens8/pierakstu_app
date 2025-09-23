@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import '../styles/Izvelnes.css'; 
 
 import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
 import { useLapuDispatch } from '../context/LapuContext';
@@ -24,12 +24,15 @@ export default function GramatuIzvelne() {
       {aktivs.redigeSadalu === 'gramata' && aktivs.gramata === gramata.id ?  
         <input
           autoFocus
+          onBlur={() => aktivsDispatch({type:'beigt redigesanu'})}
           defaultValue={gramata.id}
           onChange={e => jaunaisId = e.target.value}
-          onKeyDown={e => {if (e.key === 'Enter') saglabatGramatu();} }
+          onKeyDown={e => {if (e.key === 'Enter') saglabatGramatu()} }
         />
       :
-        gramata.id
+        <span className={gramata.id === aktivs.gramata ? 'aktivs-li-elements' : 'li-elements'}>
+          {gramata.id}
+        </span>
       }
     </li>
   )
@@ -69,6 +72,11 @@ export default function GramatuIzvelne() {
         type: 'dzesta gramata',
         id: aktivs.gramata
       });
+      lapuDispatch({
+        type:'dzesta gramata',
+        gramatasId: aktivs.gramata
+      });
+
       aktivsDispatch({type:'mainita aktiva gramata', gramata:null})
     } 
   }

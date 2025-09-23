@@ -12,7 +12,7 @@
 
  Zināmās problēmas:
   - nospiežot attiecigo taustiņu lai redigetu/izveidotu jaunu lapu, nospiestais taustiņš
-    tiek ievadits input laukā
+    tiek ievadits input laukā | SALABOTS
   - rediģējot lauku var tikt palaista funkcija, ja tiek nospiests kāds funkcijas taustiņš | SALABOTS
   - jaunas gramatas/lapas funkcija nestradas optimali ja lietotajs neadekvati ievadis nosaukumu | SALABOTS 
 ---------------------------------------------------------------------------------
@@ -20,3 +20,5 @@
 2. Izveidot jaunu state iekš AktivsContext, kas glabā vai pašreiz tiek rediģēts lauks | PABEIGTS
 
 3. Izdarit ta lai ar j un k taustiniem var mainit aktivo gramatu/lapu 
+
+4. izdzesot gramatu izdest ari visas lapas kas piedereja tai gramatai, lai atbrivotu vietu | PABEIGTS
