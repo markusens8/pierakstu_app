@@ -1,22 +1,54 @@
+/* Global style */
+:root {
+  --primary-color: #E8DCB5; 
+  --secondary-color: #2D2D2D;
+  --list-bg-color: #3B3B39; 
+  --accent-color: blue;
+}
 
 .app-container {
   display: flex;
-  text-align: center;
+  height: 100vh;
 }
 
-.lapu-izvelne {
-  background-color: aqua;
-  flex: 1;
+/* Izvelnu style */
+ul {
+  height: 90%;
+  font-size: 1.3rem;
+  border: solid black;
+  margin: 0 20%;
+  padding: 10px;
+  list-style-type: none;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 5% 0 5% 20%;
+}
+
+.izvelne {
+  flex: 0.5;
+  min-width: 20%;
+  background-color: pink;
+}
+
+.aktivs-li-elements {
+  font-weight: bold;
+  background-color: white;
+}
+
+
+/* Pierakstu redaktora style */
+textarea {
+  font-size: 1.1rem;
+  color: blue;
+  width: 90%;
+  height: 90%;
+  margin-top: 5%;
 }
 
 .pierakstu-redaktors {
-  background-color: pink;
   flex: 2;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gramatu-izvelne {
-  background-color: red;
-  flex: 1;
+  background-color: aqua;
+  text-align: center;
 }

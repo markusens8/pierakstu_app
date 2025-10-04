@@ -1,5 +1,3 @@
-import '../styles/Izvelnes.css';
-
 import { useAktivsContext, useAktivsDispatch} from '../context/AktivsContext';
 import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 import useOnKeyPress from '../hooks/useOnKeyPress';
@@ -15,6 +13,7 @@ export default function LapuIzvelne() {
     <li
       key={lapa.id}
       onClick={() => aktivsDispatch({type:'mainita aktiva lapa', lapa:lapa.id})}
+      className={lapa.id === aktivs.lapa ? 'aktivs-li-elements' : 'li-elements'}
     >
       {aktivs.redigeSadalu === 'lapa' && aktivs.lapa === lapa.id ? 
         <input
@@ -24,7 +23,7 @@ export default function LapuIzvelne() {
           onKeyDown={e => {if (e.key === 'Enter') saglabatLapu();} }
         />
       :
-        <span className={lapa.id === aktivs.lapa ? 'aktivs-li-elements' : 'li-elements'}>
+        <span>
           {lapa.id}
         </span>
       }
@@ -72,7 +71,7 @@ export default function LapuIzvelne() {
   useOnKeyPress(() => aktivsDispatch({type:'beigt redigesanu'}), 'Escape');
   useOnKeyPress(dzestLapu, 'd');
   return (
-    <nav className="lapu-izvelne">
+    <nav className='izvelne'>
       <h2> Lapu izvelne: </h2>
         <ul>
           {lapuSaraksts}

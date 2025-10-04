@@ -5,7 +5,6 @@ import { useLapuContext, useLapuDispatch } from '../context/LapuContext';
 export default function PierakstuRedaktors() {
   return (
     <main className='pierakstu-redaktors'>
-      <h2> Pierakstu redaktors: </h2>
       <TekstaIevade/> 
     </main>
   );

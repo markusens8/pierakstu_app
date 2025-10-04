@@ -1,5 +1,3 @@
-import '../styles/Izvelnes.css'; 
-
 import { useGramatuContext, useGramatuDispatch } from '../context/GramatuContext';
 import { useLapuDispatch } from '../context/LapuContext';
 import { useAktivsContext, useAktivsDispatch } from '../context/AktivsContext';
@@ -20,6 +18,7 @@ export default function GramatuIzvelne() {
       onClick={() => 
         aktivsDispatch({type:'mainita aktiva gramata', gramata:gramata.id})
       }
+      className={gramata.id === aktivs.gramata ? 'aktivs-li-elements' : 'li-elements'}
     >
       {aktivs.redigeSadalu === 'gramata' && aktivs.gramata === gramata.id ?  
         <input
@@ -30,7 +29,7 @@ export default function GramatuIzvelne() {
           onKeyDown={e => {if (e.key === 'Enter') saglabatGramatu()} }
         />
       :
-        <span className={gramata.id === aktivs.gramata ? 'aktivs-li-elements' : 'li-elements'}>
+        <span>
           {gramata.id}
         </span>
       }
@@ -86,7 +85,7 @@ export default function GramatuIzvelne() {
   useOnKeyPress(() => aktivsDispatch({type:'rediget lauku', sadala:'gramata'}), 'E');
   useOnKeyPress(dzestGramatu, 'D');
   return (
-    <nav className="gramatu-izvelne">
+    <nav className='izvelne'>
       <h2> Gramatu izvelne: </h2>
         <ul>
           {gramatuSaraksts}

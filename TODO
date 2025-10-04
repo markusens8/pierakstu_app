@@ -1,4 +1,4 @@
-1. Izveidot dispatch funkcijas gramatu contekstam 
+1. iZVEIDot dispatch funkcijas gramatu contekstam 
   Vajadzigas funkcijas:
     - nomainit aktivo gramatu | PABEIGTS
     - nomainit aktivo lapu | PABEIGTS
@@ -22,3 +22,9 @@
 3. Izdarit ta lai ar j un k taustiniem var mainit aktivo gramatu/lapu 
 
 4. izdzesot gramatu izdest ari visas lapas kas piedereja tai gramatai, lai atbrivotu vietu | PABEIGTS
+
+5. STILS
+  - Padarit tabulu izmeru nedinamisku | PABEIGTS
+  - salabot to izvelnu proporcijas 
+  - Noformet text area
+  - izveidot smuku transistion kad redigetajs pariet no aktiva uz neaktiva
