@@ -17,7 +17,7 @@ function TekstaIevade() {
   const lapuDispatch = useLapuDispatch();
 
   if (!aktivs.lapa)
-    return <textarea value={''} disabled/>;
+    return <textarea placeHolder={'Izvelies lapu...'} disabled/>;
   else {
     const lapasSaturs = lapas.find(lapa =>
       lapa.gramatasId === aktivs.gramata &&

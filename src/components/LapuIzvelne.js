@@ -71,11 +71,11 @@ export default function LapuIzvelne() {
   useOnKeyPress(() => aktivsDispatch({type:'beigt redigesanu'}), 'Escape');
   useOnKeyPress(dzestLapu, 'd');
   return (
-    <nav className='izvelne'>
-      <h2> Lapu izvelne: </h2>
-        <ul>
-          {lapuSaraksts}
-        </ul>
+    <nav>
+      <h2>Lapas</h2>
+      <ul>
+        {lapuSaraksts}
+      </ul>
     </nav>
   )
 }

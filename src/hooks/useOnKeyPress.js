@@ -5,7 +5,7 @@ export default function useOnKeyPress (callback, targetKey) {
   const aktivs = useAktivsContext();
   useEffect(() => {
     const keyPressHandler = (e) => {
-      if(e.key === targetKey && aktivs.redigeSadalu === null) {
+      if(e.key === targetKey && aktivs?.redigeSadalu == null) {
         callback();
         e.preventDefault();
       }

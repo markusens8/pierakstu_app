@@ -85,11 +85,11 @@ export default function GramatuIzvelne() {
   useOnKeyPress(() => aktivsDispatch({type:'rediget lauku', sadala:'gramata'}), 'E');
   useOnKeyPress(dzestGramatu, 'D');
   return (
-    <nav className='izvelne'>
-      <h2> Gramatu izvelne: </h2>
-        <ul>
-          {gramatuSaraksts}
-        </ul>
+    <nav>
+      <h2>Gramatas</h2>
+      <ul>
+        {gramatuSaraksts}
+      </ul>
     </nav>
   );
 }

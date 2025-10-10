@@ -1,9 +1,22 @@
 /* Global style */
 :root {
-  --primary-color: #E8DCB5; 
-  --secondary-color: #2D2D2D;
-  --list-bg-color: #3B3B39; 
-  --accent-color: blue;
+  --primary-color: #c99b51; 
+  --secondary-color: #1F180A;
+  --tertiary-color: #271C09; 
+}
+
+@font-face {
+  font-family: 'Monofonto';
+  src: 
+    local('Monofonto'),
+    url('monofonto.ttf') format(truetype);
+}
+
+
+body {
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  font-family: 'Monofonto';
 }
 
 .app-container {
@@ -12,43 +25,60 @@
 }
 
 /* Izvelnu style */
-ul {
-  height: 90%;
-  font-size: 1.3rem;
-  border: solid black;
-  margin: 0 20%;
-  padding: 10px;
-  list-style-type: none;
+nav {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  flex: 3;
 }
 
 h2 {
-  font-size: 2rem;
-  margin: 5% 0 5% 20%;
+  font-size: 1.75rem;
+  text-align: center;
+  margin: 2rem 0 0.5rem 0;
 }
 
-.izvelne {
-  flex: 0.5;
-  min-width: 20%;
-  background-color: pink;
+input {
+  font-family: 'Monofonto';
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  font-size: 1.3rem;
+  width: 100%;
+  outline: none;
+}
+
+ul {
+  border: solid var(--primary-color) 0.2rem;
+  background-color: var(--tertiary-color);
+  height: 87%;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2.5% 3%;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  list-style-type: none;
 }
 
 .aktivs-li-elements {
+  background-color: var(--secondary-color);
   font-weight: bold;
-  background-color: white;
 }
-
 
 /* Pierakstu redaktora style */
 textarea {
-  font-size: 1.1rem;
-  color: blue;
-  width: 90%;
-  height: 90%;
-  margin-top: 5%;
+  font-family: 'Monofonto';
+  height: 100%;
+  width: 97%;
+  color: var(--primary-color);
+  background-color: var(--tertiary-color);
+  border: solid var(--primary-color) 0.3rem;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1.2rem;
 }
 
 .pierakstu-redaktors {
-  flex: 2;
-  background-color: aqua;
+  background-color: var(--secondary-color); 
+  padding: 6rem 0 6rem 0;
+  flex: 8.5;
   text-align: center;
 }
